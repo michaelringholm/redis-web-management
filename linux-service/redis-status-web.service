@@ -1,0 +1,15 @@
+[Unit]
+Description="Redis Status Web"
+
+[Service]
+ExecStart=/usr/bin/node web.js
+WorkingDirectory=/home/superuser/redis-web-management/nodejs/
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=RedisStatusWeb
+Environment=NODE_ENV=production PORT=8081
+
+[Install]
+WantedBy=multi-user.target
